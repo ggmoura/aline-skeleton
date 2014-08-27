@@ -7,10 +7,33 @@
 	<version>1.0</version>
 
 	<groupId>com.google.appengine.demos</groupId>
-	<artifactId>native-mysql-hibernate-jpa</artifactId>
+	<artifactId>aline-skeleton</artifactId>
+
+	<url>http://maven.apache.org</url>
+
+	<repositories>
+		<repository>
+			<id>java.net</id>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven-gae-plugin-repo</id>
+			<name>maven-gae-plugin repository</name>
+			<url>http://maven-gae-plugin.googlecode.com/svn/repository</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<properties>
-		<appengine.app.appId>your-app-id</appengine.app.appId>
+		<appengine.app.appId>marthalanches</appengine.app.appId>
 		<appengine.app.version>1</appengine.app.version>
 		<appengine.target.version>1.8.1</appengine.target.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -46,6 +69,16 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.2.0.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.2.4</version>
+		</dependency>
 
 		<!-- Test Dependencies -->
 		<dependency>
@@ -59,6 +92,11 @@
 			<artifactId>appengine-api-stubs</artifactId>
 			<version>${appengine.target.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.0</version>
 		</dependency>
 	</dependencies>
 
@@ -96,6 +134,7 @@
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>${appengine.target.version}</version>
 			</plugin>
+			
 		</plugins>
 	</build>
 
