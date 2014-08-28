@@ -8,7 +8,7 @@
 </head>
 <body>
 		<%
-			response.sendRedirect("/pages/public/home.jsf");
+			response.sendRedirect("pages/public/home.jsf");
 		%>
 </body>
 </html>

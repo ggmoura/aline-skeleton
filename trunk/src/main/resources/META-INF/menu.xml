@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menuWrapper>
+    <menus>
+        <menu>
+            <label>Menu</label>
+            <itemsMenu>
+                <itemMenu>
+                    <item>
+                        <label>Cadastrar Menu</label>
+                        <title>Cadastrar Menu</title>
+                        <value>Cadastrar Menu</value>
+                        <command>#{layoutController.displayPage}</command>
+                        <icon>ui-icon-cart</icon>
+                        <update>:centerPanel</update>
+                        <ajax>true</ajax>
+                        <oncomplete>jQuery(document).ready(function() {document.title = 'Cadastrar Menu';});</oncomplete>
+                        <params>
+                            <param>
+								<key>page</key>
+								<value>/pages/protected/menu/cadastroMenu.xhtml</value>
+                            </param>
+                            <param>
+								<key>controller</key>
+								<value>cadastroMenuController</value>
+                            </param>
+                        </params>
+                    </item>
+                </itemMenu>
+				<itemMenu>
+                    <item>
+                        <label>Teste Menu</label>
+                        <title>Teste Menu</title>
+                        <value>Teste Menu</value>
+                        <command>#{layoutController.displayPage}</command>
+                        <icon>ui-icon-cart</icon>
+                        <update>:centerPanel</update>
+                        <ajax>true</ajax>
+                        <oncomplete>jQuery(document).ready(function() {document.title = 'Teste Menu';});</oncomplete>
+                        <params>
+                            <param>
+								<key>page</key>
+								<value>/pages/protected/menu/cadastroItemMenu.xhtml</value>
+                            </param>
+                            <param>
+								<key>controller</key>
+								<value>cadastroItemMenuController</value>
+                            </param>
+                        </params>
+                    </item>
+                </itemMenu>
+            </itemsMenu>
+        </menu>
+    </menus>
+    <candidates>
+        <candidate>
+            <link>linkmenuone</link>
+            <description>description of menu one</description>
+        </candidate>
+        <candidate>
+            <link>linkmenutow</link>
+            <description>description of menu tow</description>
+        </candidate>
+		<candidate>
+            <link>/pages/protected/menu/cadastroMenu.xhtml</link>
+            <description>Este recurso é responsável por cadastrar novos produtos no sistema da marta CDU-01</description>
+        </candidate>
+    </candidates>
+</menuWrapper>
