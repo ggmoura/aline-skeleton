@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<f:view contentType="text/html; charset=ISO-8859-1" encoding="ISO-8859-1" locale="#{localeController.locale}">
+		<h:head>
+			<f:facet name="first">
+				<meta name="author" content="Gleidson Guimaraes Moura" />
+				<meta name="copyright" content="© 2012 - A Line Software" />
+				<title><ui:insert name="title" /></title>
+			</f:facet>
+	
+			<script type="text/javascript">
+				function bodyOnLoad() {
+					<ui:insert name="onload"/>
+				}
+			</script>
+	
+			<style type="text/css">
+			
+				.ui-widget,.ui-widget-header,
+				.ui-widget-content,.ui-widget-header .ui-widget-header,
+				.ui-widget-content .ui-widget-content,.ui-widget input,
+				.ui-widget select, .ui-widget textarea,.ui-widget button {
+				    font-size: small;
+				}
+				
+			</style>
+	
+			<ui:insert name="javascript" />
+			<link type="text/css" rel="stylesheet" 
+				  href="${facesContext.externalContext.requestContextPath}/faces/javax.faces.resource/theme.css?ln=primefaces-bootstrap" />
+			<h:outputStylesheet library="css" name="comuns.css" id="css_comuns" target="body" />
+			<h:outputScript library="javascript" name="comuns.js" target="head" />
+		</h:head>
+	
+		<h:body onload="bodyOnLoad();">
+			<p:layout fullPage="true" id="fullPageLayout">
+				<p:layoutUnit gutter="0" id="north" position="north" size="70" resizable="false" closable="false" 
+							  collapsible="true">
+					<p:layout>
+						<p:layoutUnit gutter="0" id="westTop" size="275" position="west" resizable="false" closable="false" 
+									  collapsible="true">
+							<ui:include src="westTop.xhtml" />
+						</p:layoutUnit>
+						<p:layoutUnit gutter="0" id="eastTop" size="95" position="east" resizable="false" closable="false" 
+									  collapsible="true">
+							<ui:include src="eastTop.xhtml" />
+						</p:layoutUnit>
+						<p:layoutUnit gutter="0" id="centerTop" position="center">
+							<ui:include src="centerTop.xhtml" />
+						</p:layoutUnit>
+					</p:layout>
+				</p:layoutUnit>
+	
+				<p:layoutUnit gutter="0" id="south" position="south" size="70" resizable="false" closable="false" 
+							  collapsible="true">
+					<p:layout>
+						<p:layoutUnit gutter="0" id="westFooter" size="275" position="west" resizable="false" 
+									  closable="false" collapsible="true">
+							<ui:include src="westFooter.xhtml" />
+						</p:layoutUnit>
+	
+						<p:layoutUnit gutter="0" id="eastFooter" size="95" position="east" resizable="false" 
+									  closable="false" collapsible="true">
+							<ui:include src="eastFooter.xhtml" />
+						</p:layoutUnit>
+						<p:layoutUnit gutter="0" id="centerFooter" position="center">
+							<ui:include src="centerFooter.xhtml" />
+						</p:layoutUnit>
+					</p:layout>
+				</p:layoutUnit>
+	
+				<p:layoutUnit gutter="0" id="westMiddle" position="west" size="280" resizable="false" closable="false" 
+							  collapsible="true">
+					<h:form id="form">
+						<ui:include src="westMiddle.xhtml" />
+					</h:form>
+				</p:layoutUnit>
+	
+				<p:layoutUnit gutter="0" id="eastMiddle" position="east" size="100" resizable="false" closable="false" 
+							  collapsible="true">
+					<ui:include src="eastMiddle.xhtml" />
+				</p:layoutUnit>
+	
+				<p:layoutUnit gutter="0" id="centerMiddle" position="center">
+					<h:panelGroup id="centerPanel">
+						<h:panelGroup rendered="#{layoutController.contentPage != null}">
+							<ui:include src="#{layoutController.contentPage}" />
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:layoutUnit>
+	
+			</p:layout>
+		</h:body>
+	</f:view>
+</html>
