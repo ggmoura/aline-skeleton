@@ -6,7 +6,7 @@
 	<packaging>war</packaging>
 	<version>1.0</version>
 
-	<groupId>com.google.appengine.demos</groupId>
+	<groupId>br.com.alinesoftware</groupId>
 	<artifactId>aline-skeleton</artifactId>
 
 	<url>http://maven.apache.org</url>
@@ -109,11 +109,11 @@
 			<version>5.0</version>
 		</dependency>
 		<dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>1.0.10</version>
-            <scope>provided</scope>
-        </dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>1.0.10</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -148,8 +148,34 @@
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>${appengine.target.version}</version>
+				<configuration>
+					<compileEncoding>utf-8</compileEncoding>
+					<jvmFlags>
+						<jvmFlag>-XX:-UseSplitVerifier</jvmFlag>
+						<jvmFlag>-Xms512m</jvmFlag>
+						<jvmFlag>-Xmx2048m</jvmFlag>
+						<jvmFlag>-XX:NewSize=256m</jvmFlag>
+						<jvmFlag>-XX:MaxNewSize=256m</jvmFlag>
+						<jvmFlag>-XX:PermSize=512m</jvmFlag>
+						<jvmFlag>-XX:MaxPermSize=768m</jvmFlag>
+						<jvmFlag>-Xdebug</jvmFlag>
+						<jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag>
+					</jvmFlags>
+				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-maven-plugin</artifactId>
+				<version>3.3.0-release</version>
+				<configuration>
+					<api>JPA</api>
+					<persistenceUnitName>Demo</persistenceUnitName>
+					<log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
+					<verbose>true</verbose>
+				</configuration>
+				<!-- <executions> <execution> <phase>process-classes</phase> <goals> 
+					<goal>enhance</goal> </goals> </execution> </executions> -->
+			</plugin>
 		</plugins>
 	</build>
 </project>
