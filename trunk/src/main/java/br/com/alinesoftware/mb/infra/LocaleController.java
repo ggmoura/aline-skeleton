@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import br.com.alinesoftware.util.Constant;
+
 @ManagedBean
 @SessionScoped
 public class LocaleController implements Serializable {
@@ -18,13 +20,13 @@ public class LocaleController implements Serializable {
 
 	@PostConstruct
 	private void init() {
-		locale = new Locale("pt", "BR");
+		locale = new Locale(Constant.Locale.LANGUAGE_PT, Constant.Locale.COUNTRY_BR);
 	}
 
 	public String updateLocale(String language, String country) {
 		locale = new Locale(language, country);
 		FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
-		return "/pages/public/home.xhtml";
+		return Constant.Page.HOME;
 	}
 
 	public Locale getLocale() {
