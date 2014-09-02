@@ -8,10 +8,11 @@ public class Util {
 		super();
 	}
 
+	static {
+		instance = new Util();
+	}
+
 	public static Util getInstance() {
-		if (instance == null) {
-			instance = new Util();
-		}
 		return instance;
 	}
 

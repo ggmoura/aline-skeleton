@@ -16,10 +16,11 @@ public class MessageProvider {
 		bundle = context.getApplication().getResourceBundle(context, "message");
 	}
 
+	static {
+		instance = new MessageProvider();
+	}
+
 	public static MessageProvider getInstance() {
-		if (instance == null) {
-			instance = new MessageProvider();
-		}
 		return instance;
 	}
 
